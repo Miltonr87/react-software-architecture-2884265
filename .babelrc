@@ -1,3 +1,5 @@
 {
 	"presets": ["@babel/preset-env", "@babel/preset-react"]
 }
+
+// transpilla códigos antigos em novos (preset-env) e transpilla javascript para o react (preset-react)
