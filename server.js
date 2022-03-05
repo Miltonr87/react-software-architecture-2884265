@@ -1,11 +1,15 @@
 import express from 'express';
 import React from 'react';
 import { renderToString } from 'react-dom/server';
+import { Home } from './src/pages/Home';
 
 const app = express();
 
+app.use(express.static('./build', { index: false }));
+// Evita que o usuário receba novamente o "index.html" dentro da pasta "build"
+
 app.get('/*', (req, res) => {
-  const reactApp = renderToString(<h1>Hello from the server side!</h1>);
+  const reactApp = renderToString(<Home />);
 
   return res.send(`
     <html>
@@ -22,4 +26,5 @@ app.listen(8080, () => {
   console.log('Server is litening on port 8080');
 });
 
-// Rodar o servidor: "npx babel-node server.js"
+// Rodar o servidor -> npx babel-node server.js
+// Build and rendering an SSR React App -> npm run build
