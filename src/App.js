@@ -1,15 +1,21 @@
 import React from 'react';
-import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
+import styled from 'styled-components';
+import { Routes, Route, Link } from 'react-router-dom';
 import { Home } from './pages/Home';
 import { About } from './pages/About';
 import { Articles } from './pages/Articles';
 import './App.css';
 
+const BigGreenHeading = styled.h1`
+  color: green;
+  font-size: 96px;
+`;
+
 const App = () => {
   return (
     <>
-      <BrowserRouter>
-        <h1>Server-Side Rendering Example</h1>
+      <>
+        <BigGreenHeading>Server-Side Rendering Example</BigGreenHeading>
         <ul>
           <li>
             <Link to="/"> Home </Link>
@@ -26,7 +32,7 @@ const App = () => {
           <Route path="/about" component={About} />
           <Route path="/articles" component={Articles} />
         </Routes>
-      </BrowserRouter>
+      </>
     </>
   );
 };
